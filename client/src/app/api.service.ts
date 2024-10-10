@@ -29,4 +29,12 @@ export class ApiService {
   getFundraiserDonations(id: number) {
     return this.http.get(`/api/fundraiser/${id}/donations`)
   }
+
+  createDonation(giver: string, amount: number, fundraiseId: number) {
+    return this.http.post("/api/fundraiser/donations", {
+      giver,
+      amount,
+      fundraiseId
+    })
+  }
 }

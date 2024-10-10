@@ -1,1 +1,37 @@
-<p>donate works!</p>
+<header>
+  <div class="header">
+    <div class="container">
+      <a class="logo">Crowdfunding</a>
+      <div class="nav">
+        <ul class="nav-links">
+          <li><a class="nav-link" routerLink="/">Home</a></li>
+          <li><a class="nav-link" routerLink="/search">Search</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div id="fundraiser-detail" class="center">
+  <p><strong>Organizer:</strong> <span id="organizer">{{organizer}}</span></p>
+  <p><strong>Caption:</strong> <span id="caption">{{caption}}</span></p>
+  <p><strong>Target Funding:</strong> $<span id="target-funding">{{targetFunding}}</span></p>
+  <p><strong>Current Funding:</strong> $<span id="current-funding">{{currentFunding}}</span></p>
+  <p><strong>City:</strong> <span id="city">{{city}}</span></p>
+  <p><strong>Category:</strong> <span id="category">{{category}}</span></p>
+  <p><strong>Status:</strong> <span id="status">{{status}}</span></p>
+</div>
+
+<div class="center">
+  <div class="search ">
+    <div class="form-item">
+      <label>Giver</label><input type="text" [(ngModel)]="giver">
+    </div>
+    <div class="form-item">
+      <label>Amount</label><input type="number" min="5" [(ngModel)]="amount">
+    </div>
+
+    <button type="button" (click)="submitDonation()">Submit my donation</button>
+<!--    <button type="button" (click)="clearCheckboxes()">Reset</button>-->
+  </div>
+</div>

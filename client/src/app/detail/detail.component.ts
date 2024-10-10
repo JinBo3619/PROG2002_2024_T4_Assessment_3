@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ApiService} from "../api.service";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-detail',
@@ -21,7 +21,8 @@ export class DetailComponent implements OnInit {
 
   constructor(
     private api: ApiService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {
     this.route.params.subscribe((res: any) => {
       this.id = res.id
@@ -44,6 +45,8 @@ export class DetailComponent implements OnInit {
   }
 
   handleDonateClick() {
-    alert("This feature is under contruction")
+    // alert("This feature is under contruction")
+
+    this.router.navigate(['/donation/' + this.id])
   }
 }
