@@ -12,4 +12,17 @@ export class ApiService {
     console.log("fetchFundraisers method");
     return this.http.get("/api/fundraisers")
   }
+
+  getFundraiserById(id: number) {
+    return this.http.get("/api/fundraiser/" + id)
+  }
+
+  searchFundraisers(organizer: string, city: string, category: string) {
+    console.log("searchFundraisers method");
+    return this.http.get(`/api/search?organizer=${organizer}&city=${city}&category=${category}`)
+  }
+
+  getCategories() {
+    return this.http.get("/api/categories")
+  }
 }

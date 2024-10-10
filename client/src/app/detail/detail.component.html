@@ -1,1 +1,25 @@
-<p>detail works!</p>
+<header>
+  <div class="header">
+    <div class="container">
+      <a class="logo">Crowdfunding</a>
+      <div class="nav">
+        <ul class="nav-links">
+          <li><a class="nav-link" href="index.html">Home</a></li>
+          <li><a class="nav-link" href="search.html">Search</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div id="fundraiser-detail" class="center">
+  <p><strong>Organizer:</strong> <span id="organizer">{{organizer}}</span></p>
+  <p><strong>Caption:</strong> <span id="caption">{{caption}}</span></p>
+  <p><strong>Target Funding:</strong> $<span id="target-funding">{{targetFunding}}</span></p>
+  <p><strong>Current Funding:</strong> $<span id="current-funding">{{currentFunding}}</span></p>
+  <p><strong>City:</strong> <span id="city">{{city}}</span></p>
+  <p><strong>Category:</strong> <span id="category">{{category}}</span></p>
+  <p><strong>Status:</strong> <span id="status">{{status}}</span></p>
+  <!-- Donate: This feature is under contruction -->
+  <button (click)="handleDonateClick()">Donate</button>
+</div>

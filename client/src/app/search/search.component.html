@@ -1,1 +1,57 @@
-<p>search works!</p>
+<header>
+  <div class="header">
+    <div class="container">
+      <a class="logo">Crowdfunding</a>
+      <div class="nav">
+        <ul class="nav-links">
+          <li><a class="nav-link" routerLink="/">Home</a></li>
+          <li><a class="nav-link" routerLink="/search">Search</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="center">
+  <div class="search ">
+    <div class="form-item">
+      <label>Organizer</label><input type="text" id="organizer" [(ngModel)]="organizer">
+    </div>
+    <div class="form-item">
+      <label>City</label><input type="text" id="city" [(ngModel)]="city">
+    </div>
+    <div class="form-item">
+      <label>Category</label>
+      <select id="category" [(ngModel)]="category">
+        <option selected value="">Choose...</option>
+        <option *ngFor="let category of categories" [value]="category.CATEGORY_ID">{{category.NAME}}</option>
+      </select>
+    </div>
+    <button type="button" (click)="searchFundraisers()">Search</button>
+    <button type="button" (click)="clearCheckboxes()">Reset</button>
+  </div>
+
+  <div id="fundraiser-list" class="center">
+    <div class="card" *ngFor="let fundraiser of fundraisers">
+      <div>
+        <h2>{{fundraiser.CAPTION}}</h2>
+      </div>
+      <div>
+        <p>
+          <span class='target-funding'>${{fundraiser.CURRENT_FUNDING}}</span>
+          <span class='current-funding'>USD raised of {{fundraiser.TARGET_FUNDING}} goal</span>
+        </p>
+        <p>ORGANIZER: {{fundraiser.ORGANIZER}}</p>
+        <p>CITY: {{fundraiser.CITY}}</p>
+        <p>{{fundraiser.CATEGORY_NAME}}</p>
+        <p class="status-tag {{fundraiser.ACTIVE == 1 ? 'status-active' : 'status-inactive' }}">
+          {{fundraiser.ACTIVE == 1 ? "Active" : "Inactive"}}
+        </p>
+      </div>
+      <div class='card-button'>
+        <a href="/detail/{{fundraiser.FUNDRAISER_ID}}">Learn more</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="error-message">{{errorMsg}}</div>
+</div>
