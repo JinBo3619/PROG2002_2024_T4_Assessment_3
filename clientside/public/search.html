@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>search page</title>
+  <link rel="stylesheet" href="/static/css/app.css">
+</head>
+
+<body>
+  <header>
+    <div class="header">
+      <div class="container">
+        <a class="logo">Crowdfunding</a>
+        <div class="nav">
+          <ul class="nav-links">
+            <li><a class="nav-link" href="index.html">Home</a></li>
+            <li><a class="nav-link" href="search.html">Search</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="center">
+    <div class="search ">
+      <div class="form-item">
+        <label>Organizer</label><input type="text" id="organizer">
+      </div>
+      <div class="form-item">
+        <label>City</label><input type="text" id="city">
+      </div>
+      <div class="form-item">
+        <label>Category</label>
+        <select id="category">
+          <option selected value="">Choose...</option>
+        </select>
+      </div>
+      <button type="button" onclick="searchFundraisers()">Search</button>
+      <button type="button" onclick="clearCheckboxes()">Reset</button>
+    </div>
+
+    <div id="fundraiser-list" class="center">
+
+    </div>
+  </div>
+  <script src="/static/js/index.js">
+
+  </script>
+  <script>
+    window.onload = getCategories();
+
+  </script>
+</body>
+
+</html>

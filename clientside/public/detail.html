@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detail Page</title>
+  <link rel="stylesheet" href="/static/css/app.css">
+
+</head>
+
+<body>
+  <header>
+    <div class="header">
+      <div class="container">
+        <a class="logo">Crowdfunding</a>
+        <div class="nav">
+          <ul class="nav-links">
+            <li><a class="nav-link" href="index.html">Home</a></li>
+            <li><a class="nav-link" href="search.html">Search</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div id="fundraiser-detail" class="center">
+    <p><strong>Organizer:</strong> <span id="organizer"></span></p>
+    <p><strong>Caption:</strong> <span id="caption"></span></p>
+    <p><strong>Target Funding:</strong> $<span id="target-funding"></span></p>
+    <p><strong>Current Funding:</strong> $<span id="current-funding"></span></p>
+    <p><strong>City:</strong> <span id="city"></span></p>
+    <p><strong>Category:</strong> <span id="category"></span></p>
+    <p><strong>Status:</strong> <span id="status"></span></p>
+    <!-- Donate: This feature is under contruction -->
+    <button onclick="handleDonateClick()">Donate</button>
+  </div>
+  <script>
+    function handleDonateClick() {
+      alert("This feature is under contruction")
+    }
+
+    async function loadDetail() {
+      const params = new URLSearchParams(window.location.search);
+      const id = params.get('id');
+
+      if (id) {
+        try {
+          const response = await fetch(`/api/fundraiser/${id}`);
+          const data = await response.json();
+
+          document.getElementById('organizer').textContent = data.ORGANIZER;
+          document.getElementById('caption').textContent = data.CAPTION;
+          document.getElementById('target-funding').textContent = data.TARGET_FUNDING;
+          document.getElementById('current-funding').textContent = data.CURRENT_FUNDING;
+          document.getElementById('city').textContent = data.CITY;
+          document.getElementById('category').textContent = data.CATEGORY_NAME;
+          document.getElementById('status').textContent = data.ACTIVE === 1 ? 'Active' : 'Inactive';
+        } catch (error) {
+          console.error('Error loading fundraiser details:', error);
+        }
+      } else {
+        console.error('No fundraiser ID found in the URL');
+      }
+    }
+
+    window.onload = loadDetail;
+  </script>
+</body>
+
+</html>
