@@ -70,4 +70,21 @@ router.post("/fundraiser", async (req, res) => {
   });
 });
 
+router.put("/fundraiser/:id", async (req, res) => {
+  const { id } = req.params;
+  const { organizer, caption, targetFunding, currentFunding, city, active, categoryId } = req.body;
+  db.query('UPDATE FUNDRAISER SET ORGANIZER = ?, CAPTION = ?, TARGET_FUNDING = ?, CURRENT_FUNDING = ?, CITY = ?, ACTIVE = ?, CATEGORY_ID = ?) WHERE FUNDRAISER_ID = ?', [organizer, caption, targetFunding, currentFunding, city, active, categoryId, id], (err, results) => {
+    if (err) return res.status(500).json(err);
+    res.json(results);
+  });
+});
+
+router.delete("/fundraiser/:id", async (req, res) => {
+  const { id } = req.params;
+  db.query('DELETE FUNDRAISER WHERE FUNDRAISER_ID = ?', [id], (err, results) => {
+    if (err) return res.status(500).json(err);
+    res.json(results);
+  });
+});
+
 module.exports = router;
