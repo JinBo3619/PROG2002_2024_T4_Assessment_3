@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ApiService} from "../api.service";
 import {ActivatedRoute} from "@angular/router";
 
@@ -7,7 +7,8 @@ import {ActivatedRoute} from "@angular/router";
   templateUrl: './detail.component.html',
   styleUrl: './detail.component.css'
 })
-export class DetailComponent {
+export class DetailComponent implements OnInit {
+  id = ""
   organizer = ""
   caption = ""
   targetFunding = ""
@@ -16,11 +17,14 @@ export class DetailComponent {
   category = ""
   status = ""
 
+  donations: any = []
+
   constructor(
     private api: ApiService,
     private route: ActivatedRoute
   ) {
     this.route.params.subscribe((res: any) => {
+      this.id = res.id
       this.api.getFundraiserById(res.id).subscribe((res1: any) => {
         this.organizer = res1.ORGANIZER;
         this.caption = res1.CAPTION;
@@ -30,6 +34,12 @@ export class DetailComponent {
         this.category = res1.CATEGORY_NAME;
         this.status = res1.ACTIVE === 1 ? 'Active' : 'Inactive';
       })
+    })
+  }
+
+  ngOnInit(): void {
+    this.api.getFundraiserDonations(Number(this.id)).subscribe(res => {
+      this.donations = res
     })
   }
 

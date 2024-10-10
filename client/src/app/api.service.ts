@@ -25,4 +25,8 @@ export class ApiService {
   getCategories() {
     return this.http.get("/api/categories")
   }
+
+  getFundraiserDonations(id: number) {
+    return this.http.get(`/api/fundraiser/${id}/donations`)
+  }
 }

@@ -23,3 +23,21 @@
   <!-- Donate: This feature is under contruction -->
   <button (click)="handleDonateClick()">Donate</button>
 </div>
+
+
+<div class="center">
+  <h2>Donations: </h2>
+  <div id="fundraiser-list" class="center">
+    <div class="card" style="min-height: auto" *ngFor="let donation of donations">
+      <div>
+        <h2>{{donation.GIVER}}</h2>
+      </div>
+      <div>
+        <p>
+          <span class='target-funding'>${{donation.AMOUNT}}</span>
+          <span class='current-funding'>{{donation.DATE | date: 'medium'}}</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

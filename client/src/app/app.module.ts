@@ -8,13 +8,15 @@ import { DetailComponent } from './detail/detail.component';
 import { SearchComponent } from './search/search.component';
 import { HttpClientModule } from "@angular/common/http";
 import { FormsModule } from "@angular/forms";
+import { DonateComponent } from './donate/donate.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     IndexComponent,
     DetailComponent,
-    SearchComponent
+    SearchComponent,
+    DonateComponent
   ],
   imports: [
     BrowserModule,
