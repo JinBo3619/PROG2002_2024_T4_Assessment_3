@@ -6,6 +6,7 @@ const apiRoutes = require('./routes/api');
 const PORT = 3000;
 
 app.use(express.static(path.join(__dirname, '../clientside/public')));
+app.use(express.json());
 
 app.use('/static', express.static(path.join(__dirname, '../clientside/static')));
 
