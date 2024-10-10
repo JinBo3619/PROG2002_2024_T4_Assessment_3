@@ -1,0 +1,52 @@
+<header>
+  <div class="header">
+    <div class="container">
+      <a class="logo">Crowdfunding</a>
+      <div class="nav">
+        <ul class="nav-links">
+          <li><a class="nav-link" routerLink="/">Home</a></li>
+          <li><a class="nav-link" routerLink="/search">Search</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="center">
+  <div class="search " style="flex-direction: column">
+    <div class="form-item">
+      <label>Organizer</label><input type="text" [(ngModel)]="organizer">
+    </div>
+    <div class="form-item">
+      <label>Caption</label><input type="text" [(ngModel)]="caption">
+    </div>
+    <div class="form-item">
+      <label>Target Funding</label><input type="number" min="10" [(ngModel)]="targetFunding">
+    </div>
+    <div class="form-item">
+      <label>Current Funding</label><input type="number" min="10" [(ngModel)]="currentFunding">
+    </div>
+    <div class="form-item">
+      <label>City</label><input type="text" [(ngModel)]="city">
+    </div>
+    <div class="form-item">
+      <label>Category</label>
+      <select id="category" [(ngModel)]="category">
+        <option selected value="">Choose...</option>
+        <option *ngFor="let category of categories" [value]="category.CATEGORY_ID">{{category.NAME}}</option>
+      </select>
+    </div>
+    <div class="form-item">
+      <label>Status</label>
+      <select id="status" [(ngModel)]="status">
+        <option selected value="">Choose...</option>
+        <option [value]="1">Active</option>
+        <option [value]="0">Inactive</option>
+      </select>
+    </div>
+
+    <button type="button" (click)="create()">{{id ? 'Update' : 'Create'}}</button>
+    <!--    <button type="button" (click)="clearCheckboxes()">Reset</button>-->
+  </div>
+</div>
+

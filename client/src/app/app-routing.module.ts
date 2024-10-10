@@ -4,11 +4,21 @@ import {IndexComponent} from "./index/index.component";
 import {DetailComponent} from "./detail/detail.component";
 import {SearchComponent} from "./search/search.component";
 import {DonateComponent} from "./donate/donate.component";
+import {AdminComponent} from "./admin/admin.component";
+import {CreateFundraiserComponent} from "./create-fundraiser/create-fundraiser.component";
 
 const routes: Routes = [
   {
     path: 'donation/:id',
     component: DonateComponent
+  },
+  {
+    path: 'create-fundraiser',
+    component: CreateFundraiserComponent
+  },
+  {
+    path: 'edit-fundraiser/:id',
+    component: CreateFundraiserComponent
   },
   {
     path: 'detail/:id',
@@ -17,6 +27,10 @@ const routes: Routes = [
   {
     path: 'search',
     component: SearchComponent
+  },
+  {
+    path: 'admin',
+    component: AdminComponent
   },
   {
     path: '',

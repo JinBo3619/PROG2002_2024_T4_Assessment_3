@@ -1,0 +1,47 @@
+<header>
+  <div class="header">
+    <div class="container">
+      <a class="logo">Crowdfunding</a>
+      <div class="nav">
+        <ul class="nav-links">
+          <li><a class="nav-link" routerLink="/">Home</a></li>
+          <li><a class="nav-link" routerLink="/search">Search</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="table-wrapper">
+  <button style="margin: 10px 0" routerLink="/create-fundraiser">Create Fundraiser</button>
+  <table>
+    <thead>
+      <tr>
+        <th>Organizer</th>
+        <th>Caption</th>
+        <th>Target Funding</th>
+        <th>Current Funding</th>
+        <th>City</th>
+        <th>Active</th>
+        <th>Category</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let fundraiser of fundraisers">
+        <td>{{fundraiser.ORGANIZER}}</td>
+        <td>{{fundraiser.CAPTION}}</td>
+        <td>{{fundraiser.TARGET_FUNDING}}</td>
+        <td>{{fundraiser.CURRENT_FUNDING}}</td>
+        <td>{{fundraiser.CITY}}</td>
+        <td>{{fundraiser.ACTIVE === 1 ? 'Active' : 'Inactive'}}</td>
+        <td>{{fundraiser.CATEGORY_NAME}}</td>
+        <td>
+          <button routerLink="/edit-fundraiser/{{fundraiser.FUNDRAISER_ID}}">Edit</button>
+          <button (click)="deleteFundraiser(fundraiser.FUNDRAISER_ID)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+

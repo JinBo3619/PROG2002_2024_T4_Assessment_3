@@ -9,6 +9,8 @@ import { SearchComponent } from './search/search.component';
 import { HttpClientModule } from "@angular/common/http";
 import { FormsModule } from "@angular/forms";
 import { DonateComponent } from './donate/donate.component';
+import { AdminComponent } from './admin/admin.component';
+import { CreateFundraiserComponent } from './create-fundraiser/create-fundraiser.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { DonateComponent } from './donate/donate.component';
     IndexComponent,
     DetailComponent,
     SearchComponent,
-    DonateComponent
+    DonateComponent,
+    AdminComponent,
+    CreateFundraiserComponent
   ],
   imports: [
     BrowserModule,

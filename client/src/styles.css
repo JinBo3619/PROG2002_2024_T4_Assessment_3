@@ -138,3 +138,41 @@ label {
   font-weight: bold;
   margin-top: 10px;
 }
+
+.table-wrapper {
+  overflow-x: auto;
+  margin: 20px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  font-family: 'Arial', sans-serif;
+  font-size: 16px;
+  color: #333;
+}
+
+table thead th {
+  background-color: #474747;
+  color: white;
+  text-align: left;
+  padding: 12px 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+table tbody td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #e1e1e1;
+}
+
+table tbody tr:nth-child(even) {
+  background-color: #f8f8f8;
+}
+
+table tbody tr:hover {
+  background-color: #f1f1f1;
+}

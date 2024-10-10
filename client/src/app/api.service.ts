@@ -37,4 +37,32 @@ export class ApiService {
       fundraiseId
     })
   }
+
+  createFundraiser(organizer: string, caption: string, targetFunding: number, currentFunding: number, city: string, categoryId: number, active: number) {
+    return this.http.post("/api/fundraiser", {
+      organizer,
+      caption,
+      targetFunding,
+      currentFunding,
+      city,
+      categoryId,
+      active,
+    })
+  }
+
+  updateFundraiser(id: number, organizer: string, caption: string, targetFunding: number, currentFunding: number, city: string, categoryId: number, active: number) {
+    return this.http.put("/api/fundraiser/" + id, {
+      organizer,
+      caption,
+      targetFunding,
+      currentFunding,
+      city,
+      categoryId,
+      active,
+    })
+  }
+
+  deleteFundraiser(id: number) {
+    return this.http.delete("/api/fundraiser/" + id)
+  }
 }
