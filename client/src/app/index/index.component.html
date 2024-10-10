@@ -1,0 +1,38 @@
+<header>
+  <div class="header">
+    <div class="container">
+      <a class="logo">Crowdfunding</a>
+      <div class="nav">
+        <ul class="nav-links">
+          <li><a class="nav-link" href="index.html">Home</a></li>
+          <li><a class="nav-link" href="search.html">Search</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div id="home-container" class="center">
+  <div id="fundraiser-list">
+    <div class="card" *ngFor="let fundraiser of fundraisers">
+      <div>
+        <h2>{{fundraiser.CAPTION}}</h2>
+      </div>
+      <div>
+        <p>
+          <span class='target-funding'>${{fundraiser.CURRENT_FUNDING}}</span>
+          <span class='current-funding'>USD raised of {{fundraiser.TARGET_FUNDING}} goal</span>
+        </p>
+        <p>ORGANIZER: {{fundraiser.ORGANIZER}}</p>
+        <p>CITY: {{fundraiser.CITY}}</p>
+        <p>{{fundraiser.CATEGORY_NAME}}</p>
+        <p class="status-tag {{fundraiser.ACTIVE == 1 ? 'status-active' : 'status-inactive' }}">
+          {{fundraiser.ACTIVE == 1 ? "Active" : "Inactive"}}
+        </p>
+      </div>
+      <div class='card-button'>
+        <a href="/detail/{{fundraiser.FUNDRAISER_ID}}">Learn more</a>
+      </div>
+    </div>
+  </div>
+</div>
